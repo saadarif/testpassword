@@ -62,13 +62,13 @@ jobs:
 
       - name: Fix permissions
         run: |
-          chmod -v -R +rX _site | while read line; do
+          chmod -v -R +rX "$PROTECTED_DIR" | while read line; do
             echo "::warning title=Invalid file permissions automatically fixed::$line"
           done
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: ${{env.PROTECTED_DIR}}
 
   deploy:
     if: github.event_name != 'pull_request'
