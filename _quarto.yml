@@ -12,6 +12,9 @@ website:
       - href: news.qmd
         text: news
 
+execute: 
+  freeze: true
+  
 format:
   html:
     theme: cosmo
