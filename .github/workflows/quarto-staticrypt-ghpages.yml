@@ -58,7 +58,10 @@ jobs:
       - name: Install Staticrypt
         run: npm install -g staticrypt
       - name: Encrypt Pages
-        run: staticrypt $PROTECTED_DIR/* -r -d "$PROTECTED_DIR" -p "$PASSWORD" --short
+        run: staticrypt $PROTECTED_DIR/* -r -d "$PROTECTED_DIR" -p "$PASSWORD" --short \
+                      --template-color-primary "#fd45a4" \
+                      --template-title "My custom title" \
+                      --template-instructions "To unlock this file, you should..." 
 
       - name: Fix permissions
         run: |
